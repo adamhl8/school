@@ -1,0 +1,4 @@
+Scene BadScene (500, 500)
+  RightTriangle Color (0, 255, 0) at (100, 50) Height 75 Width 250;
+  Parallelogram Color (0, 0, 255) at (340, 50) Offset 30;
+End.
