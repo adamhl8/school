@@ -3,7 +3,7 @@
 // UMGC CITE
 // Spring 2023
 
-// This file contains the body of the function parseName. That function consumes all alphanumeric 
+// This file contains the body of the function parseName. That function consumes all alphanumeric
 // characters until the next whitespace and returns the name that those characters form.
 
 #include <cctype>
