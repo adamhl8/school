@@ -50,12 +50,24 @@ int main()
       expression = SubExpression::parse(in);
       in >> comma;
       parseAssignments(in);
+      if (expression == nullptr)
+      {
+        throw std::runtime_error("Expression is null after parsing");
+      }
       double result = expression->evaluate();
       cout << "Value = " << result << endl;
     }
-    catch (string message)
+    catch (const std::exception &e)
+    {
+      cout << "Error: " << e.what() << endl;
+    }
+    catch (const string &message)
     {
       cout << message << endl;
+    }
+    catch (...)
+    {
+      cout << "An unknown error occurred" << endl;
     }
   }
   system("pause");
