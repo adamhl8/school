@@ -19,6 +19,12 @@ using namespace std;
 #include "symboltable.h"
 #include "parse.h"
 
+#ifdef _WIN32
+#define PAUSE system("pause")
+#else
+#define PAUSE ((void)0)
+#endif
+
 SymbolTable symbolTable;
 
 void parseAssignments(stringstream &in);
@@ -34,7 +40,7 @@ int main()
   if (!(fin.is_open()))
   {
     cout << "File did not open" << endl;
-    system("pause");
+    PAUSE;
     return 1;
   }
   while (true)
@@ -70,7 +76,7 @@ int main()
       cout << "An unknown error occurred" << endl;
     }
   }
-  system("pause");
+  PAUSE;
   return 0;
 }
 
