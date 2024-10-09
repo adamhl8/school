@@ -1,7 +1,7 @@
-// CMSC 330 Advanced Programming Languages
-// Project 2 Skeleton
-// UMGC CITE
-// Spring 2023
+// Adam Langbert
+// Oct 8, 2024
+// CMSC 330 - Advanced Programming Languages
+// Project 2
 
 // This file contains the body of the function parseName contained in the Operand class. That function
 // parses the next token. When the next non-whitespace character is a digit, it assumes a literal is next.
@@ -22,21 +22,23 @@ using namespace std;
 #include "literal.h"
 #include "parse.h"
 
-Expression* Operand::parse(stringstream& in) {
-    char paren;
-    int value;
-
-    in >> ws;
-    if (isdigit(in.peek())) {
-        in >> value;
-        Expression* literal = new Literal(value);
-        return literal;
-    }
-    if (in.peek() == '(') {
-        in >> paren;
-        return SubExpression::parse(in);
-    }
-    else
-        return new Variable(parseName(in));
-    return 0;
+Expression *Operand::parse(stringstream &in)
+{
+  char paren;
+  in >> ws;
+  if (isdigit(in.peek()) || in.peek() == '.')
+  {
+    double value;
+    in >> value;
+    return new Literal(value);
+  }
+  if (in.peek() == '(')
+  {
+    in >> paren;
+    return SubExpression::parse(in);
+  }
+  else
+  {
+    return new Variable(parseName(in));
+  }
 }

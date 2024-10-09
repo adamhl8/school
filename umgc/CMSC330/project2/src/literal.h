@@ -1,7 +1,7 @@
-// CMSC 330 Advanced Programming Languages
-// Project 2 Skeleton
-// UMGC CITE
-// Spring 2023
+// Adam Langbert
+// Oct 8, 2024
+// CMSC 330 - Advanced Programming Languages
+// Project 2
 
 // This file contains the definition of the Literal class, whose representation consists of the value
 // of the literal. Because both of its functions are one line functions, they are implemented as inline

@@ -1,10 +1,11 @@
-// CMSC 330 Advanced Programming Languages
-// Project 2 Skeleton
-// UMGC CITE
-// Spring 2023
+// Adam Langbert
+// Oct 8, 2024
+// CMSC 330 - Advanced Programming Languages
+// Project 2
 
 // This file contains the body of the function parseName. That function consumes all alphanumeric
-// characters until the next whitespace and returns the name that those characters form.
+// characters until the next whitespace and returns the name that those characters form. It also
+// includes error checking to ensure variable names start with a letter.
 
 #include <cctype>
 #include <sstream>
@@ -13,14 +14,26 @@ using namespace std;
 
 #include "parse.h"
 
-string parseName(stringstream& in) {
-    char alnum;
-    string name = "";
+string parseName(stringstream &in)
+{
+  char c;
+  string name = "";
 
-    in >> ws;
-    while (isalnum(in.peek())) {
-        in >> alnum;
-        name += alnum;
+  in >> ws;
+
+  if (isalpha(in.peek()))
+  {
+    in >> c;
+    name += c;
+    while (isalnum(in.peek()) || in.peek() == '_')
+    {
+      in >> c;
+      name += c;
     }
-    return name;
+  }
+  else
+  {
+    throw runtime_error("Variable names must start with a letter");
+  }
+  return name;
 }

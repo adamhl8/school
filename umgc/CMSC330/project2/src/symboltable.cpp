@@ -1,7 +1,7 @@
-// CMSC 330 Advanced Programming Languages
-// Project 2 Skeleton
-// UMGC CITE
-// Spring 2023
+// Adam Langbert
+// Oct 8, 2024
+// CMSC 330 - Advanced Programming Languages
+// Project 2
 
 // This file contains the body of the functions contained in The SymbolTable class. The insert function
 // inserts a new variable symbol and its value into the symbol table and the lookUp function returns
@@ -25,4 +25,19 @@ double SymbolTable::lookUp(string variable) const
     if (elements[i].variable == variable)
       return elements[i].value;
   return -1;
+}
+
+void SymbolTable::clear()
+{
+  elements.clear();
+}
+
+bool SymbolTable::isDeclared(string variable) const
+{
+  for (const Symbol &symbol : elements)
+  {
+    if (symbol.variable == variable)
+      return true;
+  }
+  return false;
 }

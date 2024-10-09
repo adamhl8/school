@@ -1,7 +1,7 @@
-// CMSC 330 Advanced Programming Languages
-// Project 2 Skeleton
-// UMGC CITE
-// Spring 2023
+// Adam Langbert
+// Oct 8, 2024
+// CMSC 330 - Advanced Programming Languages
+// Project 2
 
 // This file contains the main function for the project 2 skeleton. It reads an input file named input.txt
 // that contains one statement that includes an expression following by a sequence of variable assignments.
@@ -48,9 +48,10 @@ int main()
     fin.getline(line, SIZE);
     if (!fin)
       break;
+    symbolTable.clear(); // Reset symbol table
     stringstream in(line, ios_base::in);
     in >> paren;
-    cout << line << " ";
+    cout << line << endl;
     try
     {
       expression = SubExpression::parse(in);
@@ -61,19 +62,23 @@ int main()
         throw std::runtime_error("Expression is null after parsing");
       }
       double result = expression->evaluate();
-      cout << "Value = " << result << endl;
+      cout << "Value = " << result << endl
+           << endl;
     }
     catch (const std::exception &e)
     {
-      cout << "Error: " << e.what() << endl;
+      cout << "Error: " << e.what() << endl
+           << endl;
     }
     catch (const string &message)
     {
-      cout << message << endl;
+      cout << message << endl
+           << endl;
     }
     catch (...)
     {
-      cout << "An unknown error occurred" << endl;
+      cout << "An unknown error occurred" << endl
+           << endl;
     }
   }
   PAUSE;
@@ -84,11 +89,17 @@ void parseAssignments(stringstream &in)
 {
   char assignop, delimiter;
   string variable;
-  int value;
+  double value;
   do
   {
     variable = parseName(in);
     in >> ws >> assignop >> value >> delimiter;
+
+    if (symbolTable.isDeclared(variable))
+    {
+      throw runtime_error("Variable '" + variable + "' is assigned more than once");
+    }
+
     symbolTable.insert(variable, value);
   } while (delimiter == ',');
 }
