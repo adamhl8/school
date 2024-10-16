@@ -1,0 +1,7 @@
+EBook,1,The Great Gatsby,1925,false,20
+MovieDVD,2,Inception,2010,false,800.0
+MusicCD,3,Dark Side of the Moon,1973,false,43
+EBook,4,1984,1949,false,12
+MovieDVD,5,The Matrix,1999,false,750.0
+MusicCD,6,Abbey Road,1969,false,47
+MovieDVD,7,The Great Gatsby,2013,false,700.0
