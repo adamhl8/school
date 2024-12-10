@@ -22,7 +22,8 @@ import java.util.function.Function;
  * @date Nov 12, 2024
  * @course CMSC 335
  * @assignment Project 2
- * @description Class Main: Entry point of the program, providing a GUI for shape calculations.
+ * @description Class Main: Entry point of the program, providing a GUI for
+ *              shape calculations.
  * @java-version Java 17
  */
 public class Main extends Application {
@@ -30,15 +31,15 @@ public class Main extends Application {
   // Map to store the shapes and their corresponding dimensions
   private static final Map<String, String[]> SHAPE_TO_DIMENSIONS = new HashMap<>() {
     {
-      put("Circle", new String[] {"Radius"});
-      put("Square", new String[] {"Side Length"});
-      put("Rectangle", new String[] {"Length", "Width"});
-      put("Triangle", new String[] {"Base", "Height"});
-      put("Sphere", new String[] {"Radius"});
-      put("Cube", new String[] {"Side Length"});
-      put("Cone", new String[] {"Radius", "Height"});
-      put("Cylinder", new String[] {"Radius", "Height"});
-      put("Torus", new String[] {"Major Radius", "Minor Radius"});
+      put("Circle", new String[] { "Radius" });
+      put("Square", new String[] { "Side Length" });
+      put("Rectangle", new String[] { "Length", "Width" });
+      put("Triangle", new String[] { "Base", "Height" });
+      put("Sphere", new String[] { "Radius" });
+      put("Cube", new String[] { "Side Length" });
+      put("Cone", new String[] { "Radius", "Height" });
+      put("Cylinder", new String[] { "Radius", "Height" });
+      put("Torus", new String[] { "Major Radius", "Minor Radius" });
     }
   };
 
@@ -238,10 +239,10 @@ public class Main extends Application {
         double base = dimensions[0];
         double height = dimensions[1];
         gc.strokePolygon(
-            new double[] {canvas.getWidth() / 2 - base / 2, canvas.getWidth() / 2 + base / 2,
-                canvas.getWidth() / 2},
-            new double[] {canvas.getHeight() / 2 + height / 2, canvas.getHeight() / 2 + height / 2,
-                canvas.getHeight() / 2 - height / 2},
+            new double[] { canvas.getWidth() / 2 - base / 2, canvas.getWidth() / 2 + base / 2,
+                canvas.getWidth() / 2 },
+            new double[] { canvas.getHeight() / 2 + height / 2, canvas.getHeight() / 2 + height / 2,
+                canvas.getHeight() / 2 - height / 2 },
             3);
         break;
       default:
